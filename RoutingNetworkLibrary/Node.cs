@@ -2,7 +2,8 @@
 {
     public class Node
     {
-        public event EventHandler NewConnection;
+        public delegate void NewConnectionHandler(Node targetNode, Node callingNode, int cost);
+        public event NewConnectionHandler NewConnection;
 
         public Guid Id { get; } = Guid.NewGuid();
 
