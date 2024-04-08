@@ -2,10 +2,12 @@
 {
     public class Node
     {
-        public delegate void NewConnectionHandler(Node targetNode, Node callingNode, int cost);
-        public event NewConnectionHandler NewConnection;
+        public delegate void NewConnectionHandler(Node callingNode, Node targetNode);
+
+        public event NewConnectionHandler? NewConnection;
 
         public Guid Id { get; } = Guid.NewGuid();
+        public string? Name { get; set; }
 
         /// <summary>
         /// Key = finaler Target Node wo es am Ende hin soll
@@ -32,17 +34,47 @@
             ConnectedNodes = new Dictionary<Node, Dictionary<Node, int>>();
         }
 
-        public void Connect(Node targetNode, Node nextNode, int cost)
+        public void Connect(Node targetNode)
         {
+            if (!ConnectedNodes.ContainsKey(targetNode))
+            {
+                Connect(targetNode, targetNode);
+            }
+        }
+
+        private void Connect(Node targetNode, Node nextNode)
+        {
+            if (targetNode.Equals(this))
+            {
+                return;
+            }
+
             if (!ConnectedNodes.ContainsKey(targetNode))
             {
                 ConnectedNodes[targetNode] = new Dictionary<Node, int>();
             }
 
-            cost++;
-            ConnectedNodes[targetNode].Add(nextNode, cost);
+            if (targetNode.Equals(nextNode))
+            {
+                ConnectedNodes[targetNode].Add(nextNode, 0);
+                targetNode.Connect(this);
+            }
+            else if (ConnectedNodes.ContainsKey(nextNode))
+            {
+                foreach (var nodeCost in ConnectedNodes[nextNode])
+                {
+                    //Bug: n2 denkt das n1 nun mit n3 verbunden ist was nicht stimmt, sollte man abbrechen wenn targetnode bekannt ist oder wnen target und nextnode bekannt sind oder ganze anders?
+                    ConnectedNodes[targetNode].Add(nodeCost.Key, nodeCost.Value + 1);
+                }
+            }
 
-            NewConnection?.Invoke(targetNode, this, cost);
+            targetNode.NewConnection += OnTargetNodeNewConnection;
+            NewConnection?.Invoke(this, targetNode);
+        }
+
+        private void OnTargetNodeNewConnection(Node callingNode, Node targetNode)
+        {
+            Connect(targetNode, callingNode);
         }
 
         public Node Route(Node destination)
