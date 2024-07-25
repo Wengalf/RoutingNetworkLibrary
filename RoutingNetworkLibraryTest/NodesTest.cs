@@ -1,20 +1,20 @@
 using RoutingNetworkLibrary;
 using System.Linq;
 
-namespace RoutingNetworkLibraryTest;
-
-[TestClass]
-public class NodesTest
+namespace RoutingNetworkLibraryTest
 {
-  [TestMethod]
-  public void TestNodeConnect()
+  [TestClass]
+  public class NodesTest
   {
-    var n1 = new Node_Synch();
-    var n2 = new Node_Synch();
-    var n3 = new Node_Synch();
-    var n4 = new Node_Synch();
-    var n5 = new Node_Synch();
-    var n6 = new Node_Synch();
+    [TestMethod]
+    public void TestNodeConnect()
+    {
+      var n1 = new Node();
+      var n2 = new Node();
+      var n3 = new Node();
+      var n4 = new Node();
+      var n5 = new Node();
+      var n6 = new Node();
 
     n1.Connect(n2, n2, 0);
     n1.Connect(n3, n2, 1);
