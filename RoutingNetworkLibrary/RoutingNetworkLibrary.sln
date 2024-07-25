@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutingNetworkLibrary", "RoutingNetworkLibrary.csproj", "{8A0FCF53-C06D-4E9F-9221-AFC2CD91427F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingNetworkLibraryTest", "..\RoutingNetworkLibraryTest\RoutingNetworkLibraryTest.csproj", "{66407E97-C23A-4CC8-9FEA-A046E5EAE5C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutingNetworkLibraryTest", "..\RoutingNetworkLibraryTest\RoutingNetworkLibraryTest.csproj", "{66407E97-C23A-4CC8-9FEA-A046E5EAE5C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "..\Benchmark\Benchmark.csproj", "{003A9CC5-BEAA-42DF-B7FC-74B3D0F24232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{66407E97-C23A-4CC8-9FEA-A046E5EAE5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66407E97-C23A-4CC8-9FEA-A046E5EAE5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66407E97-C23A-4CC8-9FEA-A046E5EAE5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{003A9CC5-BEAA-42DF-B7FC-74B3D0F24232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003A9CC5-BEAA-42DF-B7FC-74B3D0F24232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003A9CC5-BEAA-42DF-B7FC-74B3D0F24232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003A9CC5-BEAA-42DF-B7FC-74B3D0F24232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
