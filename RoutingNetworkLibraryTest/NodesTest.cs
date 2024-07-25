@@ -9,12 +9,12 @@ namespace RoutingNetworkLibraryTest
     [TestMethod]
     public void TestNodeConnect()
     {
-      var n1 = new Node();
-      var n2 = new Node();
-      var n3 = new Node();
-      var n4 = new Node();
-      var n5 = new Node();
-      var n6 = new Node();
+      var n1 = new Node_Synch();
+      var n2 = new Node_Synch();
+      var n3 = new Node_Synch();
+      var n4 = new Node_Synch();
+      var n5 = new Node_Synch();
+      var n6 = new Node_Synch();
 
     n1.Connect(n2, n2, 0);
     n1.Connect(n3, n2, 1);
