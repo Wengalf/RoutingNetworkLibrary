@@ -1,0 +1,80 @@
+﻿<Window x:Class="RoutingNetworkUiPlayground.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutingNetworkUiPlayground"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        FontWeight="Bold"
+        FontSize="14">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55*" />
+            <ColumnDefinition Width="45*" />
+        </Grid.ColumnDefinitions>
+        <Grid
+            x:Name="InfoArea"
+            Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="0"
+                Content="Selected Node:" />
+            <Label
+                x:Name="SelectedNodeName"
+                Grid.Column="1"
+                Grid.Row="0" />
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="1"
+                Content="Target Node:" />
+            <Label
+                x:Name="TargetNodeName"
+                Grid.Column="1"
+                Grid.Row="1" />
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="2"
+                Content="Best Path:" />
+            <Label
+                x:Name="BestPathText"
+                Grid.Column="1"
+                Grid.Row="2" />
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="3"
+                Content="All Paths:" />
+            <Label
+                x:Name="AllPathsText"
+                Grid.Column="1"
+                Grid.Row="3" />
+        </Grid>
+
+        <Grid
+            x:Name="RoutingAreaBase"
+            Grid.Column="1">
+            <Border
+                BorderThickness="1"
+                BorderBrush="Red">
+                <Canvas
+                    x:Name="RoutingAreaCanvas"
+                    Background="White">
+                </Canvas>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

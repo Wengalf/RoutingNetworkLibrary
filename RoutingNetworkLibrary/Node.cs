@@ -17,7 +17,9 @@ public class Node
 
     public Guid Id { get; } = Guid.NewGuid();
     public string? Name { get; set; }
-    public Dictionary<Node, Dictionary<Node, int>> ConnectedNodes { get; set; }
+    private Dictionary<Node, Dictionary<Node, int>> ConnectedNodes { get; set; }
+
+    public IEnumerable<Node> GetNeighborNodes() => ConnectedNodes.SelectMany(n => n.Value).Where(n => n.Value == 0).Select(n => n.Key);
 
     public Func<Dictionary<Node, int>, RoutingResult> RoutingMethod { get; set; } =
         (Dictionary<Node, int> possibleNextNodes) =>
